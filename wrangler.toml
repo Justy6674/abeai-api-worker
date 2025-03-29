@@ -6,16 +6,15 @@ kv_namespaces = [
   { binding = "ABEAI_KV", id = "5084daa8615147bab2771668a729620d" }
 ]
 
-# Enable logging with Cloudflare Workers for better observability and debugging
+# Remove "workers_logs" and "no_bundle"
+# We no longer need to set the build or workers logs like this.
+
 [build]
-no_bundle = true
+command = "echo 'No build needed'"
+upload.format = "modules"
 
 [vars]
 FORCE_MONETIZATION = "true"
 
-[triggers]
-routes = ["api.abeai.health/*"]  # Or any specific route you want to configure
-
-# Enable Worker observability
-[workers_logs]
-enabled = true
+# Remove the triggers section with routes
+# You don't need routes here; we're managing the proxy via the gateway worker.
