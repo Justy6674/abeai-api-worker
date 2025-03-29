@@ -6,7 +6,7 @@ kv_namespaces = [
   { binding = "ABEAI_KV", id = "5084daa8615147bab2771668a729620d" }
 ]
 
-# Remove "workers_logs" and "no_bundle"
+# Remove the "workers_logs" and "no_bundle" settings
 # We no longer need to set the build or workers logs like this.
 
 [build]
@@ -16,5 +16,9 @@ upload.format = "modules"
 [vars]
 FORCE_MONETIZATION = "true"
 
+# Observability: Enable logging
+[observability]
+logs = true
+
 # Remove the triggers section with routes
-# You don't need routes here; we're managing the proxy via the gateway worker.
+# We don't need routes here; we're managing the proxy via the gateway worker.
